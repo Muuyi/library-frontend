@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Films</h1>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>TITLE</th>
+                        <th>PRODUCER</th>
+                        <th>DIRECTOR</th>
+                        <th>RELEASE DATE</th>
+                        <th>DESCRIPTION</th>
+                    </tr>
+                    <tr *ngFor="let film of filmsList">
+                        <td>{{ film.title}}</td>
+                        <td>{{ film.producer}}</td>
+                        <td>{{ film.director}}</td>
+                        <td>{{ film.release_date}}</td>
+                        <td>{{ film.description}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

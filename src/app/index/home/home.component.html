@@ -1,0 +1,12 @@
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col flex-container">
+        <div class="book" *ngFor="let book of libraryService.bookList">
+          <img src="{{ book.photo}}" alt="" width="200px" height="300px" class="image">
+          <span class="book-footer" style="color:brown;">{{ book.title}}</span><br>
+          <span class="book-footer" style="color:#8B4513;font-weight:bold;"><small>{{ book.author}}</small></span><br>
+          <button class="btn btn-warning btn-sm" (click)="openDialog(book)">View more details</button>
+        </div>
+      </div>
+    </div>
+  </div>

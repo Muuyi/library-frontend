@@ -1,0 +1,63 @@
+<h4 class="alert alert-secondary">Books</h4>
+<form [formGroup]="bookForm" (submit)="saveBook()">
+    <div class="row" style="padding:10px;">
+        <div class="col-md-6">
+            <input type="hidden" formControlName="id">
+            <div class="form-group">
+                <label for="categoryName">Category name</label>
+                <select class="form-control" formControlName="category">
+                    <option *ngFor="let cat of libraryService.categoryList" [value]="cat.id">{{ cat.category_name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <input type="text" class="form-control" placeholder="Enter title" formControlName="title">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Author">Author</label>
+                <input type="text" class="form-control" placeholder="Enter Author" formControlName="author">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" class="form-control" formControlName="photo" (change)="handleFileInput($event.target.files)">
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <label for="review">Book review</label>
+                <textarea class="form-control" placeholder="Enter book review" formControlName="review"></textarea>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success form-control">Save book</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>S/NO</th>
+            <th>CATEGORY NAME</th>
+            <th>BOOK TITLE</th>
+            <th>PHOTO</th>
+            <th>AUTHOR</th>
+            <th>ACTION</th>
+        </tr>
+        <tr *ngFor="let book of libraryService.bookList;let i=index">
+            <td>{{ i + 1 }}</td>
+            <td></td>
+            <td>{{ book.title }}</td>
+            <td><img src="{{ book.photo}}" width="50px" /></td>
+            <td>{{ book.author }}</td>
+            <td><button class="btn btn-primary btn-small">Edit</button> | <button class="btn btn-danger btn-small">Delete</button></td>
+        </tr>
+    </table>
+</div>

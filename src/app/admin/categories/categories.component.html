@@ -1,0 +1,29 @@
+<h4 class="alert alert-secondary">Categories</h4>
+<form [formGroup]="libraryService.categoryForm" (submit)="saveCategory()">
+        <div class="col">
+            <input type="hidden" formControlName="id">
+            <div class="form-group">
+                <label for="categoryName">Category name</label>
+                <input type="text" class="form-control" placeholder="Enter book categories" formControlName="categoryName">
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <button type="submit" class="btn btn-success form-control">Save category</button>
+            </div>
+        </div>
+</form>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <th>S/NO</th>
+            <th>CATEGORY NAME</th>
+            <th>ACTION</th>
+        </tr>
+        <tr *ngFor="let cat of libraryService.categoryList;let i=index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cat.category_name}}</td>
+            <td></td>
+        </tr>
+    </table>
+</div>

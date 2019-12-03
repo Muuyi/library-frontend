@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>GOOGLE BOOKS</h1>
+            <form [formGroup]="googleForm" (submit)="searchBook()">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="text" placeholder="Enter book title" class="form-control" style="margin:10px 0px ;" formControlName="search">
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary" style="margin:10px 0px;">Search book</button>
+                    </div>
+                </div>
+            </form>
+            
+            {{ googleBooksList | json }}
+            <!-- <div class="row" *ngFor="let book of googleBooksList;">
+                <div class="col">
+                    <img src="{{googleBooksLise.volumeInfo.imageLinks.thumbnail }}" />
+                    {{ googleBooksList.items[i].volumeInfo.title }}
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
